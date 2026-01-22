@@ -7,3 +7,8 @@ Icon=io.github.mimbrero.WhatsAppDesktop
 Comment=An unofficial WhatsApp client for Linux, built with Electron.
 Categories=Utility;Network;Chat;InstantMessaging;
 StartupWMClass=whatsapp-desktop-linux
+Actions=new-chat;
+
+[Desktop Action new-chat]
+Name=Nova Conversa
+Exec=whatsapp-desktop-linux --new-chat

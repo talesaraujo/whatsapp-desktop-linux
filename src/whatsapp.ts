@@ -2,6 +2,7 @@ import { app, BrowserWindow, ipcMain, shell } from "electron";
 import path from "path";
 import ChromeVersionFix from "./fix/chrome-version-fix";
 import Electron21Fix from "./fix/electron-21-fix";
+import FontModule from "./module/font-module";
 import HotkeyModule from "./module/hotkey-module";
 import ModuleManager from "./module/module-manager";
 import TrayModule from "./module/tray-module";
@@ -31,6 +32,7 @@ export default class WhatsApp {
 
         this.moduleManager = new ModuleManager([
             new Electron21Fix(),
+            new FontModule(this.window),
             new HotkeyModule(this, this.window),
             new TrayModule(this, this.window),
             new WindowSettingsModule(this, this.window),
@@ -48,6 +50,14 @@ export default class WhatsApp {
         this.window.loadURL('https://web.whatsapp.com/', { userAgent: USER_AGENT });
 
         this.moduleManager.onLoad();
+
+        // Se iniciado com --new-chat, abre nova conversa após carregar
+        if (process.argv.includes('--new-chat')) {
+            this.window.webContents.once('did-finish-load', () => {
+                // Aguarda a interface do WhatsApp carregar
+                setTimeout(() => this.openNewChat(), 2000);
+            });
+        }
     }
 
     public reload() {
@@ -70,11 +80,22 @@ export default class WhatsApp {
     }
 
     private registerListeners() {
-        app.on('second-instance', () => {
+        app.on('second-instance', (_event, argv) => {
             this.window.show();
             this.window.focus();
+
+            if (argv.includes('--new-chat')) {
+                this.openNewChat();
+            }
         });
 
         ipcMain.on('notification-click', () => this.window.show());
+    }
+
+    private openNewChat() {
+        // Clica no botão de nova conversa do WhatsApp Web
+        this.window.webContents.executeJavaScript(`
+            document.querySelector('[data-icon="new-chat-outline"]')?.closest('button')?.click();
+        `);
     }
 };
