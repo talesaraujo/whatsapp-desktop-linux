@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <component type="desktop">
   <id>io.github.mimbrero.WhatsAppDesktop</id>
   <name>WhatsApp Desktop</name>
@@ -8,11 +8,15 @@
   <project_license>MIT</project_license>
 
   <description>
-    <p>With WhatsApp on the desktop, you can seamlessly sync all of your chats to your computer so that you can chat on whatever device is most convenient to you.</p>
-    <p>NOTE: This wrapper is not verified by, affiliated with, or supported by WhatsApp Inc.</p>
+    <p
+        >With WhatsApp on the desktop, you can seamlessly sync all of your chats to your computer so that you can chat on whatever device is most convenient to you.</p>
+    <p
+        >NOTE: This wrapper is not verified by, affiliated with, or supported by WhatsApp Inc.</p>
   </description>
 
-  <url type="bugtracker">https://github.com/mimbrero/whatsapp-desktop-linux/issues</url>
+  <url
+        type="bugtracker"
+    >https://github.com/mimbrero/whatsapp-desktop-linux/issues</url>
   <url type="homepage">https://github.com/mimbrero/whatsapp-desktop-linux</url>
 
   <requires>
@@ -34,7 +38,8 @@
 
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/mimbrero/whatsapp-desktop-linux/main/data/screenshots/screenshot-1.png</image>
+      <image
+            >https://raw.githubusercontent.com/mimbrero/whatsapp-desktop-linux/main/data/screenshots/screenshot-1.png</image>
     </screenshot>
   </screenshots>
 
@@ -65,7 +70,8 @@
       <description>
         <ul>
           <li>New unread chats item in the tray menu</li>
-          <li>The window close button now quits the app (click the "minimize to tray" tray menu item to hide the window)</li>
+          <li
+                    >The window close button now quits the app (click the "minimize to tray" tray menu item to hide the window)</li>
           <li>New tray icon with higher resolution</li>
           <li>Use the "--start-hidden" argument to start WhatsApp in tray</li>
         </ul>
@@ -75,7 +81,8 @@
       <description>
         <ul>
           <li>WhatsApp can now minimize to tray</li>
-          <li>Scaling the window is now possible with Ctrl+"+", Ctrl+0 and Ctrl+"-"</li>
+          <li
+                    >Scaling the window is now possible with Ctrl+"+", Ctrl+0 and Ctrl+"-"</li>
         </ul>
       </description>
     </release>
