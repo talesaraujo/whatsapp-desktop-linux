@@ -44,6 +44,16 @@
   </screenshots>
 
   <releases>
+    <release version="1.3.1" date="2026-11-26">
+      <description>
+        <p>Changes:</p>
+        <ul>
+          <li>Translations: English and Brazilian Portuguese, following the system language</li>
+          <li>Translated tray menu, with correct plurals for unread chats</li>
+          <li>"New chat" action in the launcher menu, localized</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.3.0" date="2026-11-26">
       <description>
         <p>Changes:</p>
