@@ -1,4 +1,5 @@
 import { BrowserWindow, Menu, MenuItem, Tray } from "electron";
+import { t, tn } from "../i18n";
 import { findIcon, getUnreadMessages } from "../util";
 import WhatsApp from "../whatsapp";
 import Module from "./module";
@@ -26,11 +27,11 @@ export default class TrayModule extends Module {
     private updateMenu(unread: number = getUnreadMessages(this.window.title)) {
         const menu = Menu.buildFromTemplate([
             {
-                label: this.window.isVisible() ? "Minimize to tray" : "Show WhatsApp",
+                label: this.window.isVisible() ? t("tray.minimize") : t("tray.show"),
                 click: () => this.onClickFirstItem()
             },
             {
-                label: "Quit WhatsApp",
+                label: t("tray.quit"),
                 click: () => this.whatsApp.quit()
             }
         ]);
@@ -38,14 +39,16 @@ export default class TrayModule extends Module {
         let tooltip = "WhatsApp Desktop";
 
         if (unread != 0) {
+            const unreadLabel = tn("tray.unread", unread);
+
             menu.insert(0, new MenuItem({
-                label: unread + " unread chats",
+                label: unreadLabel,
                 enabled: false
             }));
 
             menu.insert(1, new MenuItem({ type: "separator" }));
 
-            tooltip = tooltip + " - " + unread + " unread chats";
+            tooltip = tooltip + " - " + unreadLabel;
         }
 
         this.tray.setContextMenu(menu);
