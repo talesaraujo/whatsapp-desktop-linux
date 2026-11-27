@@ -5,10 +5,12 @@ Exec=whatsapp-desktop-linux
 Type=Application
 Icon=io.github.mimbrero.WhatsAppDesktop
 Comment=An unofficial WhatsApp client for Linux, built with Electron.
+Comment[pt_BR]=Um cliente não oficial do WhatsApp para Linux, feito com Electron.
 Categories=Utility;Network;Chat;InstantMessaging;
 StartupWMClass=whatsapp-desktop-linux
 Actions=new-chat;
 
 [Desktop Action new-chat]
-Name=Nova Conversa
+Name=New chat
+Name[pt_BR]=Nova conversa
 Exec=whatsapp-desktop-linux --new-chat

@@ -39,11 +39,13 @@
       "category": "Network;Chat;InstantMessaging",
       "desktop": {
         "entry": {
-          "Actions": "new-chat;"
+          "Actions": "new-chat;",
+          "Comment[pt_BR]": "Cliente não oficial do WhatsApp para Linux"
         },
         "desktopActions": {
           "new-chat": {
-            "Name": "Nova Conversa",
+            "Name": "New chat",
+            "Name[pt_BR]": "Nova conversa",
             "Exec": "AppRun --no-sandbox --new-chat"
           }
         }
