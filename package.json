@@ -36,7 +36,18 @@
     ],
     "linux": {
       "icon": "data/icons/hicolor/512x512/apps/io.github.mimbrero.WhatsAppDesktop.png",
-      "category": "Network;Chat;InstantMessaging"
+      "category": "Network;Chat;InstantMessaging",
+      "desktop": {
+        "entry": {
+          "Actions": "new-chat;"
+        },
+        "desktopActions": {
+          "new-chat": {
+            "Name": "Nova Conversa",
+            "Exec": "AppRun --no-sandbox --new-chat"
+          }
+        }
+      }
     }
   },
   "allowScripts": {
