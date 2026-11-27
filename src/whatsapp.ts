@@ -8,7 +8,10 @@ import ModuleManager from "./module/module-manager";
 import TrayModule from "./module/tray-module";
 import WindowSettingsModule from "./module/window-settings-module";
 
-const USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.9999.0 Safari/537.36";
+// Use the Chromium version bundled with Electron, so WhatsApp Web never sees an outdated browser.
+// Only the major version is exposed, matching Chrome's reduced user agent.
+const CHROME_MAJOR = process.versions.chrome.split(".")[0];
+const USER_AGENT = `Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${CHROME_MAJOR}.0.0.0 Safari/537.36`;
 
 export default class WhatsApp {
 
@@ -76,6 +79,7 @@ export default class WhatsApp {
                 shell.openExternal(details.url);
                 return { action: 'deny' };
             }
+            return { action: 'allow' };
         });
     }
 
